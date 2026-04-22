@@ -1,11 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.html',
-  styles: [],
+  styles: [
+    `
+      .bg-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100dvh;
+      }
+    `,
+  ],
 })
 export class App {
   protected readonly title = signal('kraiwith.github.io');

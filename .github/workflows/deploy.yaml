@@ -1,7 +1,9 @@
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - "main" # change to the branch you wish to deploy from
+      - main # Or your default branch name
 
 permissions:
   contents: read
@@ -9,15 +11,33 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v2.2.0
-      with:
-        install_command: bun run install
-    - id: build-publish
-      uses: bitovi/github-actions-angular-to-github-pages@1.0.0
-      with:
-        path: dist/${{ github.event.repository.name }}/browser
-        build_command: bun run build -- --base-href=/${{ github.event.repository.name }}/
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2.2.0
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build
+        # Replace <project-name> with your actual project name from angular.json
+        run: bun run build --configuration=production --base-href /kraiwith.github.io/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Angular builds to dist/<project-name>/browser by default in newer versions
+          path: ./dist/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

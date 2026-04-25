@@ -26,8 +26,6 @@ jobs:
         run: bun install
 
       - name: Build
-        # แก้ base-href เป็น / (ถ้าเป็น repo หลัก kraiwith.github.io) 
-        # หรือแก้เป็นชื่อ repo ของคุณ
         run: bun run build --configuration=production --base-href /
 
       - name: Setup Pages
@@ -36,7 +34,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # ตรวจสอบว่าใน dist มีไฟล์ index.html อยู่ชั้นนอกสุดจริงๆ
           path: ./dist/
 
       - name: Deploy to GitHub Pages

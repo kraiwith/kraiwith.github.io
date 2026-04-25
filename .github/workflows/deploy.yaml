@@ -17,7 +17,7 @@ jobs:
       with:
         install_command: bun run install
     - id: build-publish
-      uses: bitovi/github-actions-angular-to-github-pages
+      uses: bitovi/github-actions-angular-to-github-pages@1.0.0
       with:
         path: dist/${{ github.event.repository.name }}/browser
         build_command: bun run build -- --base-href=/${{ github.event.repository.name }}/

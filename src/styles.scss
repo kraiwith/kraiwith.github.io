@@ -1,1 +1,25 @@
 @import '../bootstrap';
+
+.btn-default {
+  --#{$prefix}btn-color: var(--#{$prefix}body-color);
+  --#{$prefix}btn-bg: var(--#{$prefix}body-bg);
+  --#{$prefix}btn-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}btn-hover-color: var(--#{$prefix}body-color);
+  --#{$prefix}btn-hover-bg: var(--#{$prefix}tertiary-bg);
+  --#{$prefix}btn-hover-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}btn-active-color: var(--#{$prefix}body-color);
+  --#{$prefix}btn-active-bg: var(--#{$prefix}secondary-bg);
+  --#{$prefix}btn-active-border-color: var(--#{$prefix}border-color);
+}
+
+.btn-outline-default {
+  --#{$prefix}btn-color: var(--#{$prefix}body-color);
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}btn-hover-color: var(--#{$prefix}body-color);
+  --#{$prefix}btn-hover-bg: var(--#{$prefix}body-bg);
+  --#{$prefix}btn-hover-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}btn-active-color: var(--#{$prefix}body-color);
+  --#{$prefix}btn-active-bg: var(--#{$prefix}body-bg);
+  --#{$prefix}btn-active-border-color: var(--#{$prefix}border-color);
+}

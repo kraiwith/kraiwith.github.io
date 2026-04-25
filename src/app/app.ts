@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styles: [],
+  styles: ``,
 })
 export class App implements AfterViewInit {
   protected readonly title = signal('kraiwith.github.io');

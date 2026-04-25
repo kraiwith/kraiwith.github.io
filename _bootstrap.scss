@@ -1,51 +1,75 @@
-@import 'node_modules/bootstrap/scss/mixins/banner';
+@import './node_modules/bootstrap/scss/mixins/banner';
 @include bsBanner('');
 
 // scss-docs-start import-stack
 // Configuration
-@import 'node_modules/bootstrap/scss/functions';
-@import 'node_modules/bootstrap/scss/variables';
-@import 'node_modules/bootstrap/scss/variables-dark';
-@import 'node_modules/bootstrap/scss/maps';
-@import 'node_modules/bootstrap/scss/mixins';
-@import 'node_modules/bootstrap/scss/utilities';
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import './node_modules/bootstrap/scss/functions';
+// 2. Include any default variable overrides here
+$body-color: #18181b;
+$body-bg: #ffffff;
+
+$primary: #422ad5;
+$secondary: #f43098;
+$success: #00d390;
+$info: #00bafe;
+$warning: #fcb700;
+$danger: #ff627d;
+
+$body-color-dark: #ecf9ff;
+$body-bg-dark: #1d232a;
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import './node_modules/bootstrap/scss/variables';
+
+@import './node_modules/bootstrap/scss/variables-dark';
+
+// 4. Include any default map overrides here
+$theme-colors: map-remove($theme-colors, 'light', 'dark');
+
+// 5. Include remainder of required parts
+@import './node_modules/bootstrap/scss/maps';
+@import './node_modules/bootstrap/scss/mixins';
+// 6. Include any other optional stylesheet partials as desired; list below is not inclusive of all available stylesheets
+@import './node_modules/bootstrap/scss/utilities';
 
 // Layout & components
-@import 'node_modules/bootstrap/scss/root';
-@import 'node_modules/bootstrap/scss/reboot';
-@import 'node_modules/bootstrap/scss/type';
-@import 'node_modules/bootstrap/scss/images';
-@import 'node_modules/bootstrap/scss/containers';
-@import 'node_modules/bootstrap/scss/grid';
-@import 'node_modules/bootstrap/scss/tables';
-@import 'node_modules/bootstrap/scss/forms';
-@import 'node_modules/bootstrap/scss/buttons';
-@import 'node_modules/bootstrap/scss/transitions';
-@import 'node_modules/bootstrap/scss/dropdown';
-@import 'node_modules/bootstrap/scss/button-group';
-@import 'node_modules/bootstrap/scss/nav';
-@import 'node_modules/bootstrap/scss/navbar';
-@import 'node_modules/bootstrap/scss/card';
-@import 'node_modules/bootstrap/scss/accordion';
-@import 'node_modules/bootstrap/scss/breadcrumb';
-@import 'node_modules/bootstrap/scss/pagination';
-@import 'node_modules/bootstrap/scss/badge';
-@import 'node_modules/bootstrap/scss/alert';
-@import 'node_modules/bootstrap/scss/progress';
-@import 'node_modules/bootstrap/scss/list-group';
-@import 'node_modules/bootstrap/scss/close';
-@import 'node_modules/bootstrap/scss/toasts';
-@import 'node_modules/bootstrap/scss/modal';
-@import 'node_modules/bootstrap/scss/tooltip';
-@import 'node_modules/bootstrap/scss/popover';
-@import 'node_modules/bootstrap/scss/carousel';
-@import 'node_modules/bootstrap/scss/spinners';
-@import 'node_modules/bootstrap/scss/offcanvas';
-@import 'node_modules/bootstrap/scss/placeholders';
+@import './node_modules/bootstrap/scss/root';
+@import './node_modules/bootstrap/scss/reboot';
+@import './node_modules/bootstrap/scss/type';
+@import './node_modules/bootstrap/scss/images';
+@import './node_modules/bootstrap/scss/containers';
+@import './node_modules/bootstrap/scss/grid';
+@import './node_modules/bootstrap/scss/tables';
+@import './node_modules/bootstrap/scss/forms';
+@import './node_modules/bootstrap/scss/buttons';
+@import './node_modules/bootstrap/scss/transitions';
+@import './node_modules/bootstrap/scss/dropdown';
+@import './node_modules/bootstrap/scss/button-group';
+@import './node_modules/bootstrap/scss/nav';
+@import './node_modules/bootstrap/scss/navbar';
+@import './node_modules/bootstrap/scss/card';
+@import './node_modules/bootstrap/scss/accordion';
+@import './node_modules/bootstrap/scss/breadcrumb';
+@import './node_modules/bootstrap/scss/pagination';
+@import './node_modules/bootstrap/scss/badge';
+@import './node_modules/bootstrap/scss/alert';
+@import './node_modules/bootstrap/scss/progress';
+@import './node_modules/bootstrap/scss/list-group';
+@import './node_modules/bootstrap/scss/close';
+@import './node_modules/bootstrap/scss/toasts';
+@import './node_modules/bootstrap/scss/modal';
+@import './node_modules/bootstrap/scss/tooltip';
+@import './node_modules/bootstrap/scss/popover';
+@import './node_modules/bootstrap/scss/carousel';
+@import './node_modules/bootstrap/scss/spinners';
+@import './node_modules/bootstrap/scss/offcanvas';
+@import './node_modules/bootstrap/scss/placeholders';
 
 // Helpers
-@import 'node_modules/bootstrap/scss/helpers';
+@import './node_modules/bootstrap/scss/helpers';
 
 // Utilities
-@import 'node_modules/bootstrap/scss/utilities/api';
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import './node_modules/bootstrap/scss/utilities/api';
 // scss-docs-end import-stack

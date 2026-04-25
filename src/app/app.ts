@@ -1,22 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, inject, signal } from '@angular/core';
+import { ThemeService } from './services/theme.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styles: [
-    `
-      .bg-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 100dvh;
-      }
-    `,
-  ],
+  styles: [],
 })
-export class App {
+export class App implements AfterViewInit {
   protected readonly title = signal('kraiwith.github.io');
+
+  protected readonly themeService = inject(ThemeService);
+
+  ngAfterViewInit() {
+    this.themeService.init();
+  }
 }

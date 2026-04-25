@@ -1,0 +1,43 @@
+<nav class="app-navbar py-2">
+  <div class="container-xl hstack gap-3 align-items-center">
+    <a href="/" class="app-brand text-decoration-none fw-bold"> Home </a>
+    <div class="app-nav-menu ms-auto hstack gap-2 align-items-center">
+      <a
+        class="btn btn-link p-2"
+        href="https://github.com/kraiwith"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="bi bi-github"></i>
+      </a>
+      <span class="d-block h-100 border-start"></span>
+      <div class="dropdown">
+        <button
+          type="button"
+          class="btn btn-link dropdown-toggle p-2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i [class]="themeService.currentThemeModeItem().icon || 'bi bi-circle-half'"></i>
+        </button>
+
+        <ul class="dropdown-menu">
+          @for (item of themeService.themeModeList; track $index) {
+            <li>
+              <button
+                type="button"
+                class="dropdown-item"
+                [class.active]="themeService.currentThemeMode() === item.mode"
+                (click)="themeService.setThemeModeAndStore(item.mode)"
+              >
+                <i [class]="item.icon"></i> {{ item.label }}
+              </button>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main></main>

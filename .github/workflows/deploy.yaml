@@ -12,9 +12,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - id: build-publish
-      uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2.2.0
       with:
-        path: dist/
         install_command: bun run install
+    - id: build-publish
+      uses: bitovi/github-actions-angular-to-github-pages@v1.2.0
+      with:
+        path: dist/${{ github.event.repository.name }}/browser
         build_command: bun run build -- --base-href=/${{ github.event.repository.name }}/

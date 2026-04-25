@@ -26,8 +26,9 @@ jobs:
         run: bun install
 
       - name: Build
-        # Replace <project-name> with your actual project name from angular.json
-        run: bun run build --configuration=production --base-href /kraiwith.github.io/
+        # แก้ base-href เป็น / (ถ้าเป็น repo หลัก kraiwith.github.io) 
+        # หรือแก้เป็นชื่อ repo ของคุณ
+        run: bun run build --configuration=production --base-href /
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -35,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Angular builds to dist/<project-name>/browser by default in newer versions
+          # ตรวจสอบว่าใน dist มีไฟล์ index.html อยู่ชั้นนอกสุดจริงๆ
           path: ./dist/
 
       - name: Deploy to GitHub Pages
